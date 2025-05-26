@@ -45,3 +45,6 @@ class QuizBuilder:
             for quiz in self.quizzes:
                 file.write(quiz.format())
 
+if __name__ == "__main__":
+    builder = QuizBuilder()
+    builder.run()
