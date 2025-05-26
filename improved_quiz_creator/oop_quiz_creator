@@ -29,3 +29,13 @@ class QuizBuilder:
 
         self.save_to_file("quiz_entries.txt")
         print("Quiz saved to quiz_entries.txt")
+
+    def create_quiz(self):
+        question = input("Enter your question: ")
+        choices = [input(f"Choice {chr(65 + i)}: ") for i in range(4)]
+
+        correct = ""
+        while correct not in ['A', 'B', 'C', 'D']:
+            correct = input("Which one is correct? (A - D): ").strip().upper()
+
+        return Quiz(question, choices, correct)
