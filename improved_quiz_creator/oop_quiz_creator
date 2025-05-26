@@ -39,3 +39,9 @@ class QuizBuilder:
             correct = input("Which one is correct? (A - D): ").strip().upper()
 
         return Quiz(question, choices, correct)
+    
+    def save_to_file(self, filename):
+        with open(filename, "a", encoding="utf-8") as file:
+            for quiz in self.quizzes:
+                file.write(quiz.format())
+
