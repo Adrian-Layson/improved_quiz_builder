@@ -11,3 +11,21 @@ class Quiz:
             output += f"{letters[i]}. {choice}\n"
         output += f"Answer: {self.correct}\n\n"
         return output
+    
+class QuizBuilder:
+    def __init__(self):
+        self.quizzes = []
+
+    def run(self):
+        print("=== WELCOME TO QUIZ BUILDER ===\n")
+        while True:
+            quiz = self.create_quiz()
+            self.quizzes.append(quiz)
+
+            again = input("Will you add another question? (y/n): ").strip().lower()
+            if again != 'y':
+                print("\nExiting program...\n")
+                break
+
+        self.save_to_file("quiz_entries.txt")
+        print("Quiz saved to quiz_entries.txt")
